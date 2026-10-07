@@ -47,7 +47,7 @@ Before the final file is written, the pipeline confirms that:
 - Every tweet ID is unique
 - `created_at` contains valid dates
 - Important fields are filled in
-- The final file can be written successfully
+- Required fields contain valid values
 
 ##  Results
 
@@ -69,7 +69,7 @@ extract_tweets → transform_tweets → validate_and_load
 
 The DAG is in `dags/twitter_etl_dag.py`. It was tested locally on Windows using **WSL2 (Ubuntu)**, because Airflow works best in Unix-like environments. Airflow runs locally for development and demonstration and is not hosted on a cloud server.
 
-##  Testing
+## Testing
 
 Automated unit tests cover the transformation and validation logic:
 
@@ -83,9 +83,6 @@ Run them with:
 ```bash
 python -m unittest discover tests
 ```
-
-Expected result: `Ran 4 tests — OK`
-
 ##  Dashboard
 
 A lightweight static dashboard (HTML and CSS) is deployed on **Vercel**. It shows the record counts, pipeline status, architecture, data quality checks, and technologies used. It only presents the results of a verified pipeline run. It does not run the ETL or connect to Airflow.
@@ -106,6 +103,8 @@ twitter-data-engineering-project/
 ├── Data/
 │   └── tweets.csv               # Source dataset (not on GitHub)
 ├── output/
+│   ├── raw_tweets.csv           # Generated intermediate file (not on GitHub)
+│   ├── transformed_tweets.csv   # Generated intermediate file (not on GitHub)
 │   └── refined_tweets.csv       # Final output (not on GitHub)
 ├── .gitignore
 ├── requirements.txt
@@ -124,33 +123,33 @@ twitter-data-engineering-project/
 | HTML / CSS | Dashboard |
 | Vercel | Dashboard deployment |
 
-##  How to Run
+## How to Run
 
-**1. Clone the repository**
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Jinatsultana/twitter-data-pipeline.git
 cd twitter-data-pipeline
 ```
 
-**2. Create and activate a virtual environment** (Windows PowerShell)
+### 2. Create and activate a virtual environment (Windows PowerShell)
 
-```bash
+```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-**3. Install dependencies**
+### 3. Install Python dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install pandas
 ```
 
-**4. Add the dataset**
+### 4. Add the dataset
 
 Place the dataset at `Data/tweets.csv`.
 
-**5. Run the pipeline**
+### 5. Run the pipeline
 
 ```bash
 python scripts/twitter_etl.py
