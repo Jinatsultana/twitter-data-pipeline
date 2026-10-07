@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Twitter Data Engineering Pipeline</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <p class="label">DATA ENGINEERING PROJECT</p>
+
+            <h1>Twitter Data Engineering Pipeline</h1>
+
+            <p class="subtitle">
+                An end-to-end ETL pipeline using Python, Pandas and Apache Airflow.
+            </p>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- Metrics -->
+
+        <section class="metrics">
+
+            <div class="card">
+                <span>Source Records</span>
+                <strong>52,542</strong>
+            </div>
+
+            <div class="card">
+                <span>Clean Records</span>
+                <strong>16,947</strong>
+            </div>
+
+            <div class="card">
+                <span>Duplicate IDs</span>
+                <strong>8,901</strong>
+            </div>
+
+            <div class="card">
+    <span>Last Verified Run</span>
+    <strong class="success">SUCCESS</strong>
+</div>
+
+        </section>
+
+
+        <!-- Architecture -->
+
+        <section class="section">
+
+            <h2>Pipeline Architecture</h2>
+
+            <div class="pipeline">
+
+                <div class="step">
+                    <span>01</span>
+                    <strong>CSV Dataset</strong>
+                    <small>Source</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">
+                    <span>02</span>
+                    <strong>Extract</strong>
+                    <small>Read data</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">
+                    <span>03</span>
+                    <strong>Transform</strong>
+                    <small>Clean data</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">
+                    <span>04</span>
+                    <strong>Validate</strong>
+                    <small>Quality checks</small>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">
+                    <span>05</span>
+                    <strong>Load</strong>
+                    <small>CSV output</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Data Quality -->
+
+        <section class="section">
+
+            <h2>Data Quality Checks</h2>
+
+            <div class="checks">
+
+                <div>✓ Required columns validated</div>
+                <div>✓ Duplicate tweet IDs handled</div>
+                <div>✓ Timestamp validation</div>
+                <div>✓ Missing critical values checked</div>
+                <div>✓ Output file generated successfully</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Technologies -->
+
+        <section class="section">
+
+            <h2>Technologies</h2>
+
+            <div class="technologies">
+
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>Apache Airflow</span>
+                <span>WSL2</span>
+                <span>Git</span>
+                <span>GitHub</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Project Information -->
+
+        <section class="section">
+
+            <h2>About the Project</h2>
+
+            <p class="description">
+                This project demonstrates an end-to-end data engineering workflow.
+                A publicly available Twitter dataset is extracted from CSV,
+                transformed using Pandas, validated using data quality checks,
+                and loaded into a refined output dataset.
+            </p>
+
+            <p class="description">
+                Apache Airflow is used to orchestrate the ETL workflow locally.
+                The original reference project used the Twitter API, while this
+                implementation uses a static dataset to keep the pipeline
+                reproducible and independent of paid API access.
+            </p>
+
+        </section>
+
+
+        <footer>
+            <p>Twitter Data Engineering Pipeline</p>
+            <p>Built with Python • Pandas • Apache Airflow</p>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
