@@ -2,6 +2,10 @@
 
 An end-to-end data engineering project that extracts, transforms, validates, and loads Twitter dataset records using Python, Pandas, and Apache Airflow.
 
+## Live Dashboard
+
+[View Live Dashboard](https://twitter-data-pipeline-dashboard.vercel.app/)
+
 ## Project Overview
 
 This project demonstrates a local ETL pipeline built around a publicly available Twitter dataset.
