@@ -100,12 +100,7 @@ twitter-data-engineering-project/
 ├── dashboard/
 │   ├── index.html
 │   └── style.css
-├── Data/
-│   └── tweets.csv               # Source dataset (not on GitHub)
-├── output/
-│   ├── raw_tweets.csv           # Generated intermediate file (not on GitHub)
-│   ├── transformed_tweets.csv   # Generated intermediate file (not on GitHub)
-│   └── refined_tweets.csv       # Final output (not on GitHub)
+├── tweets.csv               
 ├── .gitignore
 ├── requirements.txt
 └── README.md
