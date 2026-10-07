@@ -25,19 +25,31 @@ The pipeline performs:
 ## Architecture
 
 ```text
-tweets.csv
-    |
-    v
-Extract
-    |
-    v
-Transform
-    |
-    v
-Data Quality Validation
-    |
-    v
-Load
-    |
-    v
-refined_tweets.csv
+Public Dataset
+      |
+      v
+   Extract
+      |
+      v
+   Transform
+      |
+      v
+   Validate
+      |
+      v
+     Load
+      |
+      v
+ Refined CSV
+
+Apache Airflow
+     |
+     +---- Orchestrates the ETL workflow
+     
+GitHub
+     |
+     +---- Stores source code, DAG, tests and documentation
+
+Vercel
+     |
+     +---- Hosts the project dashboard
