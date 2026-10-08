@@ -30,6 +30,41 @@ jobs:
         run: |
           python -m unittest discover tests
 
+      - name: Create CI test dataset
+        run: |
+          mkdir -p Data
+
+          python - <<'PY'
+          import pandas as pd
+          from pathlib import Path
+
+          data = {
+              "id": [1, 2, 3, 3],
+              "author": ["user1", "user2", "user3", "user3"],
+              "content": [
+                  "First test tweet",
+                  "Second test tweet",
+                  "Third test tweet",
+                  "Duplicate test tweet"
+              ],
+              "country": ["India", "India", "USA", "USA"],
+              "date_time": [
+                  "2026-01-01 10:00:00",
+                  "2026-01-02 11:00:00",
+                  "2026-01-03 12:00:00",
+                  "2026-01-03 12:00:00"
+              ],
+              "language": ["en", "en", "en", "en"],
+              "number_of_likes": [10, 20, 30, 30],
+              "number_of_shares": [1, 2, 3, 3],
+              "latitude": [None, None, None, None],
+              "longitude": [None, None, None, None]
+          }
+
+          df = pd.DataFrame(data)
+          df.to_csv(Path("Data/tweets.csv"), index=False)
+          PY
+
       - name: Run ETL pipeline
         run: |
           python scripts/twitter_etl.py
