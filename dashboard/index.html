@@ -12,167 +12,535 @@
 
 <body>
 
-    <header>
-        <div class="container">
-            <p class="label">DATA ENGINEERING PROJECT</p>
+<header>
+    <div class="container">
 
-            <h1>Twitter Data Engineering Pipeline</h1>
+        <p class="label">DATA ENGINEERING PROJECT</p>
 
-            <p class="subtitle">
-                An end-to-end ETL pipeline using Python, Pandas and Apache Airflow.
-            </p>
+        <h1>Twitter Data Engineering Pipeline</h1>
+
+        <p class="subtitle">
+            End-to-end ETL pipeline using Python, Pandas and Apache Airflow.
+        </p>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+
+    <!-- KEY METRICS -->
+
+    <section class="metrics">
+
+        <div class="card">
+            <span>Source Records</span>
+            <strong>52,542</strong>
         </div>
-    </header>
+
+        <div class="card">
+            <span>Clean Records</span>
+            <strong>16,947</strong>
+        </div>
+
+        <div class="card">
+            <span>Duplicate IDs</span>
+            <strong>8,901</strong>
+        </div>
+
+        <div class="card">
+            <span>Pipeline Status</span>
+            <strong class="success">SUCCESS</strong>
+        </div>
+
+    </section>
 
 
-    <main class="container">
+    <!-- INTERACTIVE ANALYTICS -->
 
-        <!-- Metrics -->
+    <section class="section">
 
-        <section class="metrics">
+        <h2>Interactive Analytics</h2>
 
-            <div class="card">
-                <span>Source Records</span>
-                <strong>52,542</strong>
+        <div style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            background: white;
+            padding: 18px 22px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        ">
+
+            <div>
+
+                <label
+                    for="userFilter"
+                    style="
+                        display: block;
+                        font-size: 12px;
+                        font-weight: bold;
+                        color: #4b5563;
+                        margin-bottom: 6px;
+                    "
+                >
+                    Select User
+                </label>
+
+                <select
+                    id="userFilter"
+                    style="
+                        width: 375px;
+                        max-width: 100%;
+                        padding: 9px 12px;
+                        border: 1px solid #d1d5db;
+                        border-radius: 6px;
+                        background: white;
+                        font-size: 14px;
+                    "
+                >
+                    <option value="all">All Users</option>
+                </select>
+
             </div>
 
-            <div class="card">
-                <span>Clean Records</span>
-                <strong>16,947</strong>
-            </div>
 
-            <div class="card">
-                <span>Duplicate IDs</span>
-                <strong>8,901</strong>
-            </div>
+            <div
+                style="
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+                    white-space: nowrap;
+                "
+            >
 
-            <div class="card">
-    <span>Last Verified Run</span>
-    <strong class="success">SUCCESS</strong>
-</div>
+                <div>
+                    <strong
+                        id="tweetCount"
+                        style="font-size: 23px; color: #111827;"
+                    >
+                        16,947
+                    </strong>
 
-        </section>
-
-
-        <!-- Architecture -->
-
-        <section class="section">
-
-            <h2>Pipeline Architecture</h2>
-
-            <div class="pipeline">
-
-                <div class="step">
-                    <span>01</span>
-                    <strong>CSV Dataset</strong>
-                    <small>Source</small>
+                    <small style="color:#6b7280;">
+                        Tweets
+                    </small>
                 </div>
 
-                <div class="arrow">→</div>
 
-                <div class="step">
-                    <span>02</span>
-                    <strong>Extract</strong>
-                    <small>Read data</small>
+                <div>
+                    <strong
+                        id="likeCount"
+                        style="font-size: 23px; color: #111827;"
+                    >
+                        0
+                    </strong>
+
+                    <small style="color:#6b7280;">
+                        Likes
+                    </small>
                 </div>
 
-                <div class="arrow">→</div>
 
-                <div class="step">
-                    <span>03</span>
-                    <strong>Transform</strong>
-                    <small>Clean data</small>
-                </div>
+                <div>
+                    <strong
+                        id="shareCount"
+                        style="font-size: 23px; color: #111827;"
+                    >
+                        0
+                    </strong>
 
-                <div class="arrow">→</div>
-
-                <div class="step">
-                    <span>04</span>
-                    <strong>Validate</strong>
-                    <small>Quality checks</small>
-                </div>
-
-                <div class="arrow">→</div>
-
-                <div class="step">
-                    <span>05</span>
-                    <strong>Load</strong>
-                    <small>CSV output</small>
+                    <small style="color:#6b7280;">
+                        Shares
+                    </small>
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- Data Quality -->
+        <p
+            id="filterResult"
+            style="
+                margin-top: 7px;
+                font-size: 12px;
+                color: #6b7280;
+            "
+        >
+            Showing all users
+        </p>
 
-        <section class="section">
-
-            <h2>Data Quality Checks</h2>
-
-            <div class="checks">
-
-                <div>✓ Required columns validated</div>
-                <div>✓ Duplicate tweet IDs handled</div>
-                <div>✓ Timestamp validation</div>
-                <div>✓ Missing critical values checked</div>
-                <div>✓ Output file generated successfully</div>
-
-            </div>
-
-        </section>
+    </section>
 
 
-        <!-- Technologies -->
+    <!-- ETL FLOW -->
 
-        <section class="section">
+<section class="section">
 
-            <h2>Technologies</h2>
+    <h2>ETL Flow</h2>
 
-            <div class="technologies">
+    <div style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        background: white;
+        padding: 14px 16px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    ">
 
-                <span>Python</span>
-                <span>Pandas</span>
-                <span>Apache Airflow</span>
-                <span>WSL2</span>
-                <span>Git</span>
-                <span>GitHub</span>
+        <div style="
+            flex: 1;
+            text-align: center;
+            padding: 10px 6px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 7px;
+        ">
+            <small style="display:block;font-size:9px;color:#9ca3af;">
+                01
+            </small>
 
-            </div>
+            <strong style="font-size:13px;color:#111827;">
+                CSV
+            </strong>
 
-        </section>
-
-
-        <!-- Project Information -->
-
-        <section class="section">
-
-            <h2>About the Project</h2>
-
-            <p class="description">
-                This project demonstrates an end-to-end data engineering workflow.
-                A publicly available Twitter dataset is extracted from CSV,
-                transformed using Pandas, validated using data quality checks,
-                and loaded into a refined output dataset.
-            </p>
-
-            <p class="description">
-                Apache Airflow is used to orchestrate the ETL workflow locally.
-                The original reference project used the Twitter API, while this
-                implementation uses a static dataset to keep the pipeline
-                reproducible and independent of paid API access.
-            </p>
-
-        </section>
+            <small style="display:block;font-size:10px;color:#6b7280;">
+                Source
+            </small>
+        </div>
 
 
-        <footer>
-            <p>Twitter Data Engineering Pipeline</p>
-            <p>Built with Python • Pandas • Apache Airflow</p>
-        </footer>
+        <span style="font-size:18px;color:#6b7280;">
+            →
+        </span>
 
-    </main>
+
+        <div style="
+            flex: 1;
+            text-align: center;
+            padding: 10px 6px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 7px;
+        ">
+            <small style="display:block;font-size:9px;color:#9ca3af;">
+                02
+            </small>
+
+            <strong style="font-size:13px;color:#111827;">
+                Extract
+            </strong>
+
+            <small style="display:block;font-size:10px;color:#6b7280;">
+                Read
+            </small>
+        </div>
+
+
+        <span style="font-size:18px;color:#6b7280;">
+            →
+        </span>
+
+
+        <div style="
+            flex: 1;
+            text-align: center;
+            padding: 10px 6px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 7px;
+        ">
+            <small style="display:block;font-size:9px;color:#9ca3af;">
+                03
+            </small>
+
+            <strong style="font-size:13px;color:#111827;">
+                Transform
+            </strong>
+
+            <small style="display:block;font-size:10px;color:#6b7280;">
+                Clean
+            </small>
+        </div>
+
+
+        <span style="font-size:18px;color:#6b7280;">
+            →
+        </span>
+
+
+        <div style="
+            flex: 1;
+            text-align: center;
+            padding: 10px 6px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 7px;
+        ">
+            <small style="display:block;font-size:9px;color:#9ca3af;">
+                04
+            </small>
+
+            <strong style="font-size:13px;color:#111827;">
+                Validate
+            </strong>
+
+            <small style="display:block;font-size:10px;color:#6b7280;">
+                Quality
+            </small>
+        </div>
+
+
+        <span style="font-size:18px;color:#6b7280;">
+            →
+        </span>
+
+
+        <div style="
+            flex: 1;
+            text-align: center;
+            padding: 10px 6px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 7px;
+        ">
+            <small style="display:block;font-size:9px;color:#9ca3af;">
+                05
+            </small>
+
+            <strong style="font-size:13px;color:#111827;">
+                Load
+            </strong>
+
+            <small style="display:block;font-size:10px;color:#6b7280;">
+                Output
+            </small>
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- DATA QUALITY -->
+
+<section class="section">
+
+    <h2>Data Quality Checks</h2>
+
+    <div style="
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        background: white;
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    ">
+
+        <div style="
+            padding: 9px 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            font-size: 12px;
+        ">
+            ✓ Required columns validated
+        </div>
+
+        <div style="
+            padding: 9px 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            font-size: 12px;
+        ">
+            ✓ Duplicate tweet IDs handled
+        </div>
+
+        <div style="
+            padding: 9px 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            font-size: 12px;
+        ">
+            ✓ Timestamp validation
+        </div>
+
+        <div style="
+            padding: 9px 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            font-size: 12px;
+        ">
+            ✓ Missing critical values checked
+        </div>
+
+        <div style="
+            padding: 9px 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            font-size: 12px;
+        ">
+            ✓ Output file generated successfully
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- TECHNOLOGIES -->
+
+<section class="section">
+
+    <h2>Tech Stack</h2>
+
+    <div style="
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        background: white;
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    ">
+
+        <span style="
+            padding: 7px 14px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 12px;
+        ">
+            Python
+        </span>
+
+        <span style="
+            padding: 7px 14px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 12px;
+        ">
+            Pandas
+        </span>
+
+        <span style="
+            padding: 7px 14px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 12px;
+        ">
+            Apache Airflow
+        </span>
+
+        <span style="
+            padding: 7px 14px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 12px;
+        ">
+            WSL2
+        </span>
+
+        <span style="
+            padding: 7px 14px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 12px;
+        ">
+            Git
+        </span>
+
+        <span style="
+            padding: 7px 14px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 12px;
+        ">
+            GitHub
+        </span>
+
+    </div>
+
+</section>
+
+
+    <!-- ABOUT -->
+
+<section class="section">
+
+    <h2>About the Project</h2>
+
+    <div style="
+        background: white;
+        padding: 16px 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    ">
+
+        <p style="
+            max-width: 900px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 8px;
+        ">
+            An end-to-end data engineering workflow that extracts a public
+            Twitter dataset, transforms it with Pandas, validates data quality,
+            and produces a refined dataset.
+        </p>
+
+        <p style="
+            max-width: 900px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #4b5563;
+        ">
+            Apache Airflow orchestrates the ETL workflow locally, while the
+            static dataset keeps the project reproducible and free from paid API dependencies.
+        </p>
+
+    </div>
+
+</section>
+
+
+    <!-- FOOTER -->
+
+<footer style="
+    margin-top: 25px;
+    padding: 16px 0;
+    text-align: center;
+    color: #6b7280;
+    font-size: 11px;
+    border-top: 1px solid #e5e7eb;
+">
+
+    <p>
+        Twitter Data Engineering Pipeline
+        •
+        Python
+        •
+        Pandas
+        •
+        Apache Airflow
+    </p>
+
+</footer>
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<script src="script.js"></script>
 
 </body>
 
